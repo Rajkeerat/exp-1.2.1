@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Experiment 1.2.1 | Live Character Counter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 400px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      resize: none;
+      border-radius: 10px;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    textarea::placeholder {
+      color: #cbd5f5;
+    }
+
+    .counter {
+      text-align: right;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <textarea
+      id="message"
+      placeholder="Type your message..."
+      maxlength="150"
+      oninput="updateCount()"
+    ></textarea>
+
+    <div class="counter">
+      <span id="count">0</span>/150
+    </div>
+  </div>
+
+  <script>
+    function updateCount() {
+      const textarea = document.getElementById("message");
+      const count = document.getElementById("count");
+      count.textContent = textarea.value.length;
+    }
+  </script>
+</body>
+</html>
